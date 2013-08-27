@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Django Project Base for www.ChooseYourPro.Com
 =============================================
 
@@ -20,3 +21,9 @@ Features include:
 www.chooseyourpro.com is not in affiliaiton with PGATour
 
 =============================================
+=======
+cyp
+===
+
+ChooseYourPro.Com
+>>>>>>> de8ffab5e5c03ed87069ae36d8625d269dde316e
