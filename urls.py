@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls.defaults import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -6,8 +6,8 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'cyp_dotcom.views.home', name='home'),
-    # url(r'^cyp_dotcom/', include('cyp_dotcom.foo.urls')),
+    # url(r'^$', 'cyp.views.home', name='home'),
+    # url(r'^cyp/', include('cyp.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
