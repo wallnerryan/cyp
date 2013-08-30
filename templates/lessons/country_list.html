@@ -12,7 +12,7 @@
         {% else %}
          {% for country in country_list %}
          <li>
-            <a href="">{{ country.name }}</a>
+            <a href="{% url 'lessons:geo' country.slug %}">{{ country.name }}</a>
          </li>
          {% endfor %}
         {% endif %}

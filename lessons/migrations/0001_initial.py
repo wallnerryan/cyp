@@ -14,22 +14,47 @@ class Migration(SchemaMigration):
             ('name', self.gf('django.db.models.fields.CharField')(unique=True, max_length=255)),
             ('flag', self.gf('django.db.models.fields.files.ImageField')(max_length=100)),
             ('available', self.gf('django.db.models.fields.BooleanField')(default=True)),
+            ('gmap', self.gf('django.db.models.fields.CharField')(unique=True, max_length=5)),
+            ('slug', self.gf('django.db.models.fields.SlugField')(default='', max_length=255, blank=True)),
         ))
         db.send_create_signal(u'lessons', ['Country'])
+
+        # Adding model 'GeoMap'
+        db.create_table(u'lessons_geomap', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('name', self.gf('django.db.models.fields.CharField')(unique=True, max_length=255)),
+            ('available', self.gf('django.db.models.fields.BooleanField')(default=True)),
+            ('country', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['lessons.Country'], to_field='gmap')),
+            ('slug', self.gf('django.db.models.fields.SlugField')(default='', max_length=255, blank=True)),
+        ))
+        db.send_create_signal(u'lessons', ['GeoMap'])
 
 
     def backwards(self, orm):
         # Deleting model 'Country'
         db.delete_table(u'lessons_country')
 
+        # Deleting model 'GeoMap'
+        db.delete_table(u'lessons_geomap')
+
 
     models = {
         u'lessons.country': {
-            'Meta': {'object_name': 'Country'},
+            'Meta': {'ordering': "['name']", 'object_name': 'Country'},
             'available': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
             'flag': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'}),
+            'gmap': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '5'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '255'})
+            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '255'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'default': "''", 'max_length': '255', 'blank': 'True'})
+        },
+        u'lessons.geomap': {
+            'Meta': {'ordering': "['name']", 'object_name': 'GeoMap'},
+            'available': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
+            'country': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['lessons.Country']", 'to_field': "'gmap'"}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '255'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'default': "''", 'max_length': '255', 'blank': 'True'})
         }
     }
 

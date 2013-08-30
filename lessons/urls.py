@@ -13,4 +13,10 @@ urlpatterns = patterns('',
     
     #Countries
     url(r'^countries/$', views.CountryList.as_view(), name="list"),
+    
+    #Dig down to GeoMap (gmap is 3-5 char field)
+     url(r'^countries/(?P<slug>((([a-z]+)([-])?)+)$)',
+         views.GeoMapView.as_view(),name="geo"),
+    
+    
 )

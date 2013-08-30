@@ -1,0 +1,23 @@
+{% extends "_layouts/base.html" %}
+{% block head %}
+  <script src="{{STATIC_URL}}js/raphael.js"></script>
+  <script src="{{STATIC_URL}}js/jquery.usmap.js"></script>
+  <script src="{{STATIC_URL}}js/run_usmap.js"></script>
+  <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/lessons/geo.css" />
+{% endblock %}
+{% block page_title %}Map{% endblock %}
+
+{% block map_content %}
+{% if gmap.name == "USA" %}
+<div class="map-section">
+    <h2>Choose a state thats available</h2>
+       <div id="usmap" style="width: 700px; height: 700px;">
+       </div>
+{% else %}
+    <h2>Choose available</h2>
+        <div>
+        <p>Location currently unsupported, please visit again! Thanks!</p>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

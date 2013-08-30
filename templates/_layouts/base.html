@@ -4,8 +4,14 @@
             <title>{% block page_title %}{% endblock %}ChooseYourPro</title>
             <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/bootstrap.min.css" />
             <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}main/style.css" />
+            <script src="{{STATIC_URL}}js/jquery-2.0.3.js"></script>
+            {% block head %}
+            {% endblock %}
         </head>
         <body class="main">
+            <div class="main-div">
             {% block page_content %}{% endblock %}
+            </div>
+            {% block map_content %}{% endblock %}
         </body>
     </html>
