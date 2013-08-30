@@ -1,0 +1,20 @@
+{% extends "_layouts/base.html" %}
+
+{% block page_title %}Countries{% endblock %}
+
+{% block page_content %}
+<h2>Choose a country thats available</h2>
+    <ul>
+        {% if country_list|length == 0 %}
+        <li>
+        No Countries Available Yet, Check Back Later
+        </li>
+        {% else %}
+         {% for country in country_list %}
+         <li>
+            <a href="">{{ country.name }}</a>
+         </li>
+         {% endfor %}
+        {% endif %}
+    </ul>
+{% endblock %}

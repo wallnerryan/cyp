@@ -1,0 +1,18 @@
+{% extends "_layouts/base.html" %}
+
+{% block page_title %}Welcome to ChooseYourPro.Com!{% endblock %}
+
+{% block page_content %}
+<h2>It's a good day for golf!</h2>
+    <p>
+        <h2>What we do...</h2>
+        <ul>
+          <li>Allow for Pro's to to advertise their own lessons at their own courses</li>
+          <li>Allow Players to book their own lessons, or even bid on the price!</li>
+          <li>Find a lessons from a Golf Professional near you!</li>
+        </ul>
+    </p>
+        <h2>Where do I start?!</h2>
+        Well, either <a href="">Create a Profile</a> or <a href="{% url 'lessons:landing' %}">Find a Lesson!</a>
+    </p>
+{% endblock %}

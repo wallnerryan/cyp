@@ -1,0 +1,14 @@
+{% extends "_layouts/base.html" %}
+
+{% block page_title %}Welcome to Lessons!{% endblock %}
+
+{% block page_content %}
+<h2>Find your lessons with ChooseYourPro.com!</h2>
+    <p>
+        Here is how it works...
+        <ol>
+          <li>Click on the Find My Lesson button Below</li>  
+        </ol>
+    </p>
+    <button><a href="{% url 'lessons:list' %}">Find My Lesson</a></button>
+{% endblock %}

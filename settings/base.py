@@ -53,7 +53,7 @@ USE_L10N = True
 #Look into this for user/professional pictures and scorecards
 #Combined with MEDIA URL, Uploaded files
 #django will create if does not exist
-MEDIA_ROOT = root('..', 'uploads')
+MEDIA_ROOT = root('..','uploads')
 #######################################################
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
@@ -62,7 +62,8 @@ MEDIA_ROOT = root('..', 'uploads')
 #######################################################
 #
 #Uploaded Files URL You or Django ended with slash
-MEDIA_URL = ''
+#NEEDS TO BE CHANGED!!
+MEDIA_URL = "/uploads/"
 #######################################################
 
 # Absolute path to the directory static files should be collected to.
@@ -70,7 +71,7 @@ MEDIA_URL = ''
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
 #Good as IS for NOW
-STATIC_ROOT = root('..','static')
+STATIC_ROOT = root('static')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -148,7 +149,11 @@ THIRD_PARTY_APPS = (
 )
 
 #Any local, site-specific apps
-LOCAL_APPS = ()
+LOCAL_APPS = (
+    'lessons',
+    'players',
+    'pros',
+)
 
 #All apps set to INSTALLED_APPS
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
