@@ -3,14 +3,13 @@ import os
 # here() gives us file paths from the root of the system to the directory
 # holding the current file.
 here = lambda * x: os.path.join(os.path.abspath(os.path.dirname(__file__)), *x)
-
-PROJECT_ROOT = here("..")
+PROJECT_ROOT = here()
+print PROJECT_ROOT
 # root() gives us file paths from the root of the system to whatever
 # folder(s) we pass it starting at the parent directory of the current file.
 root = lambda * x: os.path.join(os.path.abspath(PROJECT_ROOT), *x)
 
-#DEBUG = True
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -19,9 +18,19 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
+    }
+}
+
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -53,7 +62,7 @@ USE_L10N = True
 #Look into this for user/professional pictures and scorecards
 #Combined with MEDIA URL, Uploaded files
 #django will create if does not exist
-MEDIA_ROOT = root('..','uploads')
+MEDIA_ROOT = root('uploads')
 #######################################################
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
@@ -76,13 +85,13 @@ STATIC_ROOT = root('static')
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
 #Good as is FOR NOW
-#TODO
 STATIC_URL = '/static/'
 
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
 ADMIN_MEDIA_PREFIX = '/static/admin/'
+
 
 # Additional locations of static files
 # asset files, css, javascript, etc (usually just one)
@@ -150,9 +159,9 @@ THIRD_PARTY_APPS = (
 
 #Any local, site-specific apps
 LOCAL_APPS = (
-    'lessons',
-    'players',
-    'pros',
+    'cyp.lessons',
+    'cyp.players',
+    'cyp.pros',
 )
 
 #All apps set to INSTALLED_APPS

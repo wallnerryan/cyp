@@ -6,6 +6,7 @@
 from django.conf.urls import patterns, include, url
 from . import views
 
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = patterns('',
     #Lessons
@@ -16,7 +17,7 @@ urlpatterns = patterns('',
     
     #Dig down to GeoMap (gmap is 3-5 char field)
      url(r'^countries/(?P<slug>((([a-z]+)([-])?)+)$)',
-         views.GeoMapView.as_view(),name="geo"),
-    
-    
+         views.GeoMapView.as_view(),name="geo"),   
 )
+
+urlpatterns += staticfiles_urlpatterns()

@@ -1,8 +1,9 @@
 <!DOCTYPE html>
     <html>
         <head>
+            {% load staticfiles %}
             <title>{% block page_title %}{% endblock %}ChooseYourPro</title>
-            <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/bootstrap.min.css" />
+            <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}"/>
             <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}main/style.css" />
             <script src="{{STATIC_URL}}js/jquery-2.0.3.js"></script>
             {% block head %}

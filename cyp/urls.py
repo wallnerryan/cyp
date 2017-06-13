@@ -6,8 +6,8 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from . import views
-
 admin.autodiscover()
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = patterns('',
     # Examples:
@@ -19,8 +19,9 @@ urlpatterns = patterns('',
     
     #Lessons
     #Other Lessons URLS are in lessons/urls.py
-    url(r'^lessons/', include('lessons.urls', namespace="lessons")),
+    url(r'^lessons/', include('cyp.lessons.urls', namespace="lessons")),
 
     #Router to Admin Interface
     url(r'^admin/', include(admin.site.urls)),
 )
+urlpatterns += staticfiles_urlpatterns()
